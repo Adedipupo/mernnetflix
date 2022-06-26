@@ -13,7 +13,7 @@ mongoose.connect(process.env.MONGO_URL,{
 }).then(()=>console.log("Database conneected")).catch((err)=>console.log(err))
 
 app.use(express.json());
-app.use("/ api/auth", authRoute);
+app.use("/api/auth", authRoute);
 
 app.listen(8800,()=>{
     console.log("Server is runnning on on 8800 ")
