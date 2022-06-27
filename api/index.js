@@ -2,6 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const authRoute = require('./routes/auth');
+const userRoute = require('./routes/user');
+const helmet = require("helmet");
+const morgan = require("morgan");
 
 const app = express();
 
@@ -12,8 +15,12 @@ mongoose.connect(process.env.MONGO_URL,{
     useUnifiedTopology: true, 
 }).then(()=>console.log("Database conneected")).catch((err)=>console.log(err))
 
+
+app.use(helmet());
+app.use(morgan("combined"));
 app.use(express.json());
 app.use("/api/auth", authRoute);
+app.use("/api/users", userRoute);
 
 app.listen(8800,()=>{
     console.log("Server is runnning on on 8800 ")
