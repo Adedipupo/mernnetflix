@@ -7,7 +7,7 @@ const Home = () => {
   return (
     <div className="home">
       <Navbar/>
-      <Featured type="movie"/>
+      <Featured type="series"/>
       <List/>
       <List/>
       <List/>
