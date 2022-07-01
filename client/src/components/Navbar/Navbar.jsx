@@ -1,5 +1,6 @@
 import { ArrowDropDownOutlined, LaptopWindows, Notifications, SearchOutlined } from "@material-ui/icons";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "./navbar.scss";
 
 const Navbar = () => {
@@ -15,9 +16,15 @@ const Navbar = () => {
       <div className="container">
           <div className="left">
               <img src="https://cdn.iconscout.com/icon/free/png-256/netflix-3628944-3030169.png" alt="logo"/>
+             <Link to='/' className="link">
               <span>Homepage</span>
+             </Link>
+              <Link to='/series' className="link">
               <span>Series</span>
+              </Link>
+              <Link to='/movies' className="link">
               <span>Movies</span>
+              </Link>
               <span>New and Popular</span>
               <span>My List</span>
           </div>

@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 
 function App() {
+  const user = true;
   return (
     <div className="App">
       <BrowserRouter>
@@ -18,6 +19,7 @@ function App() {
         <Route index element={<Home />} />
         <Route path="/movies" element={<Home type="movies" />} />
         <Route path="/series" element={<Home type="series" />} />
+        <Route path="/watch" element={<Watch />} />
         </Routes>
       </BrowserRouter>
     </div>
