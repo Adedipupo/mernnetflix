@@ -8,16 +8,19 @@ import axios from "axios"
 
 const Home = ({type}) => {
   const [lists,setLists] = useState([]);
+  const [genre,setGenre] = useState(null);
 
   useEffect(()=> {
     const getRandom = async () => {
       try {
-        const res = await axios.get("/lists");
+        const res = await axios.get(`/lists${type &&`?type=${type}`}&{genre && genre=${genre}}`);
+        console.log("object",res);
       } catch (error) {
         console.log(error)
       }
     }
   })
+  
   return (
     <div className="home">
       <Navbar/>

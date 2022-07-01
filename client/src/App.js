@@ -6,7 +6,7 @@ import Watch from "./pages/watch/Watch";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
-  const user = false;
+  const user = true;
   return (
     <div className="App">
       <BrowserRouter>
