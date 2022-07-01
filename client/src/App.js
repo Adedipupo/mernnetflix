@@ -7,7 +7,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link
+  Navigate
 } from "react-router-dom";
 
 function App() {
@@ -16,8 +16,8 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-        <Route index element={<Home />} />
-        <Route path="register" element={<Register />} />
+        <Route index element={user ? <Home /> : <Navigate to="/register" />} />
+        <Route path="register" element={!user ? <Register /> : <Navigate to="/login" />} />
         <Route path="login" element={<Login />} />
         <Route path="/movies" element={<Home type="movies" />} />
         <Route path="/series" element={<Home type="series" />} />
