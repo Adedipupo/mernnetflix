@@ -1,0 +1,50 @@
+.largeWigdet{
+    flex: 2;
+    box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 15px -10pxrgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 15px -10px rgba(0,0,0,0.75);
+    padding: 20px;
+}
+.largeWigdetTitle{
+    font-size: 22px;
+    font-weight: 600;
+}
+.largeWigdetTable{
+    width: 100%;
+    border-spacing: 20px;
+}
+.largeWigdetTh{
+    text-align: left;
+}
+.largeWigdetUser{
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+}
+.largeWigdetImage{
+    font: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 10px;
+}
+.largeWigdetDate,.largeWigdetAmount{
+    font-weight: 300;
+}
+.largeWigdetButton{
+    padding: 5px 7px;
+    border: none;
+    border-radius: 10px;
+}
+.largeWigdetButton.approved{
+   background-color: #e5faf2;
+   color: green;
+}
+.largeWigdetButton.declined{
+    background-color: #fff0f1;
+    color: red;
+}
+.largeWigdetButton.pending{
+    background-color: #ebf1fe;
+    color: blue
+}

@@ -1,0 +1,7 @@
+.home{
+    flex: 4;
+}
+.homeWigdet{
+    display: flex;
+    margin: 20px;
+}
