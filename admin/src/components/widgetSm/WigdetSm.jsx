@@ -23,7 +23,6 @@ export default function WigdetSm() {
     };
     getNewUser();
   }, []);
-  console.log("first", newUser);
   return (
     <div className="smallWidget">
       <span className="smallWigdetTitle">

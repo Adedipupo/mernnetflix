@@ -1,5 +1,5 @@
 import { ModalManager } from "@material-ui/core";
-import { BrokenImageTwoTone, Chat, CropOriginalOutlined, Feedback, GraphicEq, LineStyle, Mail, Money, MoneyOutlined, PeopleOutlineTwoTone, PeopleTwoTone, ReportOff, ReportTwoTone, Timeline, TrendingUp } from "@material-ui/icons";
+import { PlayCircleOutline, Chat, CropOriginalOutlined, Feedback, GraphicEq, LineStyle, Mail, Money, MoneyOutlined, PeopleOutlineTwoTone, PeopleTwoTone, ReportOff, ReportTwoTone, Timeline, TrendingUp } from "@material-ui/icons";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import "./sidebar.css";
@@ -7,7 +7,6 @@ import "./sidebar.css";
 export default function Sidebar() {
   const [sidebar,setSidebar] = useState(false);
   const showSidebar = () =>{
-    console.log("first");
     setSidebar(!sidebar);
   } 
   return (
@@ -41,10 +40,10 @@ export default function Sidebar() {
                     Users
                   </li>
                 </Link>
-                <Link to="/products" className="link">
+                <Link to="/movies" className="link">
                   <li className="sidebarListItem">
-                    <BrokenImageTwoTone className="sidebarIcon"/>
-                    Products
+                    <PlayCircleOutline className="sidebarIcon"/>
+                    Movies
                   </li>
                 </Link>
                   <li className="sidebarListItem">
