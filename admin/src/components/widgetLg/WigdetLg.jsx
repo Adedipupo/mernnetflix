@@ -10,6 +10,7 @@ export default function WigdetLg() {
     <div className="largeWigdet">
       <h3 className="largeWigdetTitle">Latest transactions</h3>
       <table className="largeWigdetTable">
+        <tbody>
           <tr className="largeWigdetTr">
               <th className="largeWigdetTh">Customer</th>
               <th className="largeWigdetTh">Date</th>
@@ -71,6 +72,7 @@ export default function WigdetLg() {
                <Button type="pending"/>
              </td>
           </tr>
+        </tbody>   
       </table>
     </div>
   )

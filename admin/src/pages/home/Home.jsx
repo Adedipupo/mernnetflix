@@ -36,7 +36,7 @@ export default function Home() {
         const res = await axios.get("/users/stats", {
           headers: {
             token:
-              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYjliNDhlYTM5YzE4YjQxMzI0OTFkZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1Njg0NDY4NiwiZXhwIjoxNjU3Mjc2Njg2fQ.UXraduof68fDeWgVzogm56yKttiFIZIClCqEOZbaUTk",
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYjliNDhlYTM5YzE4YjQxMzI0OTFkZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1Njg2NjI4MCwiZXhwIjoxNjU3Mjk4MjgwfQ.SEQpEEFxbtyLH96JNmu--QxGLhUIm6rYsie0SbuJ6IU",
           },
         });
         const statsList = res.data.sort(function (a, b) {
@@ -54,10 +54,11 @@ export default function Home() {
     };
     getStats();
   }, [MONTHS]);
+  console.log(userStats);
   return (
     <div className="home">
       <FeaturedInfo/>
-      <Chart data={userData} title="Sales Analytics" grid dataKey="Active User"/>
+      <Chart data={userStats} title="User Analytics" dataKey="New User"/>
       <div className="homeWigdet">
           <WigdetSm />
           <WigdetLg />
