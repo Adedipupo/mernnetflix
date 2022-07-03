@@ -27,8 +27,8 @@ export default function List({list}) {
       <div className="wrapper">
           <ArrowBackIosOutlined className="sliderArrow left" onClick={()=>handleClick("left")} style={{display: !isMoved && "none"}}/>
           <div className="container" ref={listRef}>
-            {list?.content?.map((item,i) => (
-              <ListItem index={i} item={item} />
+            {list?.content.map((item,i) => (
+              <ListItem index={i} key={`item.id + ${i++}`} item={item} />
             ))}
            
           </div>
