@@ -1,7 +1,25 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons";
+import { useEffect, useState } from "react";
 import "./featured.scss";
+import axios from "axios";
 
 export default function Featured({type}){
+    const [content,setContent] = useState([]);
+
+    useEffect(()=> {
+        const getRandomContent = async () => {
+          try {
+            const res = await axios.get(`/movies/random?type=${type}}`,{
+              headers: {
+                token: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYjliNDhlYTM5YzE4YjQxMzI0OTFkZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1Njg0NDY4NiwiZXhwIjoxNjU3Mjc2Njg2fQ.UXraduof68fDeWgVzogm56yKttiFIZIClCqEOZbaUTk"
+              }});
+            setContent (res.data[0]);
+          } catch (error) {
+            console.log(error)
+          }
+        }
+        getRandomContent();
+      },[type]);
   return (
     <div className="featured">
         {type && (
@@ -24,12 +42,12 @@ export default function Featured({type}){
                 </select>
             </div>
         )}
-            <img src="https://venturebeat.com/wp-content/uploads/2020/04/ff7remake.jpg?fit=3341%2C1871&strip=all" alt="user" width="100%" />
+            <img src={content.img} alt="user" width="100%" />
 
             <div className="info">
-               <img src="https://flyclipart.com/thumb2/insatiable-82865.png" alt="user" />
+               <img src={content.imgTitle} alt="user" />
                <span className="desc">
-               Whoops! It looks like you might not be logged in because we saw no writing activity for you last week. Please log back in to keep your writing in tip-top shape and stay in the loop about your epic stats and achievements!
+               {content.desc}
                </span>
                <div className="buttons">
                    <button className="play">
