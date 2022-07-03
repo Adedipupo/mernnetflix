@@ -4,8 +4,56 @@ import WigdetSm from "../../components/widgetSm/WigdetSm";
 import WigdetLg from "../../components/widgetLg/WigdetLg";
 import "./home.css";
 import {userData} from "../../data";
+import { useMemo } from "react";
+import { useState } from "react";
+import { useEffect } from "react";
+import axios from "axios";
 
 export default function Home() {
+  const MONTHS = useMemo(
+    () => [
+      "Jan",
+      "Feb",
+      "Mar",
+      "Apr",
+      "May",
+      "Jun",
+      "Jul",
+      "Agu",
+      "Sep",
+      "Oct",
+      "Nov",
+      "Dec",
+    ],
+    []
+  );
+
+  const [userStats, setUserStats] = useState([]);
+
+  useEffect(() => {
+    const getStats = async () => {
+      try {
+        const res = await axios.get("/users/stats", {
+          headers: {
+            token:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyYjliNDhlYTM5YzE4YjQxMzI0OTFkZCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY1Njg0NDY4NiwiZXhwIjoxNjU3Mjc2Njg2fQ.UXraduof68fDeWgVzogm56yKttiFIZIClCqEOZbaUTk",
+          },
+        });
+        const statsList = res.data.sort(function (a, b) {
+          return a._id - b._id;
+        });
+        statsList.map((item) =>
+          setUserStats((prev) => [
+            ...prev,
+            { name: MONTHS[item._id - 1], "New User": item.total },
+          ])
+        );
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    getStats();
+  }, [MONTHS]);
   return (
     <div className="home">
       <FeaturedInfo/>
