@@ -9,24 +9,26 @@ import CreateUser from "./pages/createUser/CreateUser";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import CreateProduct from "./pages/createProduct/CreateProduct";
+import Login from "./pages/login/Login";
 
 function App() {
   return (
-    <div>
+    <>
       <Topbar />
       <div className="container">
         <Sidebar />
         <Routes>
           <Route exact path="/" element={<Home />} />
+          <Route path="/login" element={<Login />} />
           <Route path="/users" element={<UserList />} />
           <Route path="/user/:userId" element={<User />} />
           <Route path="/newUser" element={<CreateUser />} />
-          <Route path="/movies" element={<ProductList />} />
+          <Route path="/products" element={<ProductList />} />
           <Route path="/product/:productId" element={<Product />} />
           <Route path="/newProduct" element={<CreateProduct />} />
         </Routes>
       </div>
-    </div>
+    </>
   );
 }
 
